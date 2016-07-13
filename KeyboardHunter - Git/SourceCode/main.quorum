@@ -1,0 +1,63 @@
+use Libraries.Game.Game
+use Libraries.Game.Graphics.Drawable
+use Libraries.Game.InputMonitor
+use Libraries.Interface.Events.KeyboardEvent
+use Libraries.Sound.Audio
+use Libraries.Containers.Array
+
+
+class Main is Game
+Array<Drawable> letters
+
+Drawable letterA
+Drawable letterB
+Drawable letterC
+
+KeyboardEvent keys
+InputMonitor iMonitor
+
+text nextLetter = ""
+
+boolean keyReady = true
+
+integer counter = 0
+    
+    action Main
+        StartGame()
+    end
+
+    action CreateGame
+    
+    letterA:Load("Alphabet/A-300.png")
+    letterA:SetPosition(230, 170)
+    Add(letterA)
+    letterA:Hide()
+
+    letters:Add(letterA)
+    letters:Add(letterB)
+    letters:Add(letterC)
+
+    end
+
+    
+    action Update(number seconds)
+
+        if iMonitor:IsKeyPressed(keys:SPACE) = true and keyReady  = true
+           letters:Get(counter):Load("Alphabet/A-300.png")
+           keyReady  = false
+           
+        elseif iMonitor:IsKeyPressed(keys:SPACE) = false and keyReady = false
+            keyReady = true
+        end
+
+        nextLetter = letterA:GetName()
+
+        if iMonitor:IsKeyPressed(keys:A) = true and keyReady = true
+            letterA:Hide()
+            counter = counter + 1
+            keyReady = false
+        elseif iMonitor:IsKeyPressed(keys:A) = false and keyReady = false
+            keyReady = true
+        end
+    end
+end
