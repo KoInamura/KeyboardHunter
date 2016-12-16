@@ -4,6 +4,7 @@ use Libraries.Game.InputMonitor
 use Libraries.Interface.Events.KeyboardEvent
 use Libraries.Sound.Audio
 use Libraries.Containers.Array
+use Libraries.Compute.Random
 
 
 class Main is Game
@@ -13,6 +14,30 @@ Array<Drawable>arrayOfDrawables
 Drawable letterA
 Drawable letterB
 Drawable letterC
+Drawable letterD
+Drawable letterE
+Drawable letterF
+Drawable letterG
+Drawable letterH
+Drawable letterI
+Drawable letterJ
+Drawable letterK
+Drawable letterL
+Drawable letterM
+Drawable letterN
+Drawable letterO
+Drawable letterP
+Drawable letterQ
+Drawable letterR
+Drawable letterS
+Drawable letterT
+Drawable letterU
+Drawable letterV
+Drawable letterW
+Drawable letterX
+Drawable letterY
+Drawable letterZ
+
 
 Drawable nextDrawable
 
@@ -21,14 +46,17 @@ Audio cheer
 KeyboardEvent keys
 InputMonitor iMonitor
 
+Random ran
+
 text nextFile = ""
 
 boolean keyReady = true
 
 integer counter = 0
+integer letterPosition = 0
+integer keyOnBoard = 0
     
     action Main
-        say "Welcome to the Keyboard Hunter, press enter to start the game."
         StartGame()
     end
 
@@ -37,36 +65,237 @@ integer counter = 0
         arrayOfDrawables:Add(letterA)
         arrayOfDrawables:Add(letterB)
         arrayOfDrawables:Add(letterC)
-
-        arrayOfFiles:Add("Alphabet/A-300.png")
-        arrayOfFiles:Add("Alphabet/B-300.png")
-        arrayOfFiles:Add("Alphabet/C-300.png")
-
-       
-        nextDrawable = arrayOfDrawables:Get(1)
-        nextFile = arrayOfFiles:Get(1)
-        nextDrawable:Load(nextFile)
-        nextDrawable:SetPosition(230, 170)
-        Add(nextDrawable)
-
-        say "Can you find B on the keyboard?"
+        arrayOfDrawables:Add(letterD)
+        arrayOfDrawables:Add(letterE)
+        arrayOfDrawables:Add(letterF)
+        arrayOfDrawables:Add(letterG)
+        arrayOfDrawables:Add(letterH)
+        arrayOfDrawables:Add(letterI)
+        arrayOfDrawables:Add(letterJ)
+        arrayOfDrawables:Add(letterK)
+        arrayOfDrawables:Add(letterL)
+        arrayOfDrawables:Add(letterM)
+        arrayOfDrawables:Add(letterN)
+        arrayOfDrawables:Add(letterO)
+        arrayOfDrawables:Add(letterP)
+        arrayOfDrawables:Add(letterQ)
+        arrayOfDrawables:Add(letterR)
+        arrayOfDrawables:Add(letterS)
+        arrayOfDrawables:Add(letterT)
+        arrayOfDrawables:Add(letterU)
+        arrayOfDrawables:Add(letterV)
+        arrayOfDrawables:Add(letterW)
+        arrayOfDrawables:Add(letterX)
+        arrayOfDrawables:Add(letterY)
+        arrayOfDrawables:Add(letterZ)
         
+            
+            letterA:Load("Alphabet/A-300.png")
+            letterA:SetPosition(230, 170)
+            Add(letterA)
+            letterA:Hide()
+           
+            letterB:Load("Alphabet/B-300.png")
+            letterB:SetPosition(230, 170)
+            Add(letterB)
+            letterB:Hide()
         
+            letterC:Load("Alphabet/C-300.png")
+            letterC:SetPosition(230, 170)
+            Add(letterC)
+            letterC:Hide()
+            
+            letterD:Load("Alphabet/D-300.png")
+            letterD:SetPosition(230, 170)
+            Add(letterD)
+            letterD:Hide()
+           
+            letterE:Load("Alphabet/E-300.png")
+            letterE:SetPosition(230, 170)
+            Add(letterE)
+            letterE:Hide()
+        
+            letterF:Load("Alphabet/F-300.png")
+            letterF:SetPosition(230, 170)
+            Add(letterF)
+            letterF:Hide()
+
+            letterG:Load("Alphabet/G-300.png")
+            letterG:SetPosition(230, 170)
+            Add(letterG)
+            letterG:Hide()
+           
+            letterH:Load("Alphabet/H-300.png")
+            letterH:SetPosition(230, 170)
+            Add(letterH)
+            letterH:Hide()
+        
+            letterI:Load("Alphabet/I-300.png")
+            letterI:SetPosition(230, 170)
+            Add(letterI)
+            letterI:Hide()
+
+            letterJ:Load("Alphabet/J-300.png")
+            letterJ:SetPosition(230, 170)
+            Add(letterJ)
+            letterJ:Hide()
+
+            letterK:Load("Alphabet/K-300.png")
+            letterK:SetPosition(230, 170)
+            Add(letterK)
+            letterK:Hide()
+           
+            letterL:Load("Alphabet/L-300.png")
+            letterL:SetPosition(230, 170)
+            Add(letterL)
+            letterL:Hide()
+        
+            letterM:Load("Alphabet/M-300.png")
+            letterM:SetPosition(230, 170)
+            Add(letterM)
+            letterM:Hide()
+            
+            letterN:Load("Alphabet/N-300.png")
+            letterN:SetPosition(230, 170)
+            Add(letterN)
+            letterN:Hide()
+           
+            letterO:Load("Alphabet/O-300.png")
+            letterO:SetPosition(230, 170)
+            Add(letterO)
+            letterO:Hide()
+        
+            letterP:Load("Alphabet/P-300.png")
+            letterP:SetPosition(230, 170)
+            Add(letterP)
+            letterP:Hide()
+
+            letterQ:Load("Alphabet/Q-300.png")
+            letterQ:SetPosition(230, 170)
+            Add(letterQ)
+            letterQ:Hide()
+           
+            letterR:Load("Alphabet/R-300.png")
+            letterR:SetPosition(230, 170)
+            Add(letterR)
+            letterR:Hide()
+        
+            letterS:Load("Alphabet/S-300.png")
+            letterS:SetPosition(230, 170)
+            Add(letterS)
+            letterS:Hide()
+
+            letterT:Load("Alphabet/T-300.png")
+            letterT:SetPosition(230, 170)
+            Add(letterT)
+            letterT:Hide()
+
+            letterU:Load("Alphabet/U-300.png")
+            letterU:SetPosition(230, 170)
+            Add(letterU)
+            letterU:Hide()
+           
+            letterV:Load("Alphabet/V-300.png")
+            letterV:SetPosition(230, 170)
+            Add(letterV)
+            letterV:Hide()
+        
+            letterW:Load("Alphabet/W-300.png")
+            letterW:SetPosition(230, 170)
+            Add(letterW)
+            letterW:Hide()
+            
+            letterX:Load("Alphabet/X-300.png")
+            letterX:SetPosition(230, 170)
+            Add(letterX)
+            letterX:Hide()
+           
+            letterY:Load("Alphabet/Y-300.png")
+            letterY:SetPosition(230, 170)
+            Add(letterY)
+            letterY:Hide()
+        
+            letterZ:Load("Alphabet/Z-300.png")
+            letterZ:SetPosition(230, 170)
+            Add(letterZ)
+            letterZ:Hide()
 
         cheer:Load("Sound/Yay.wav")
-        
 
+        letterA:Show()
+        say "Welcome to the Keyboard Hunter. Find the key on the screen. Press the key on the screen."
     end
 
     
     action Update(number seconds)
 
-        if iMonitor:IsKeyPressed(keys:B) = true and keyReady = true
-            letterB:Hide()
-            counter = counter + 1
+
+        if letterPosition = 0
+            keyOnBoard = keys:A    
+        elseif letterPosition = 1
+            keyOnBoard = keys:B    
+        elseif letterPosition = 2
+            keyOnBoard = keys:C 
+        elseif letterPosition = 3
+            keyOnBoard = keys:D    
+        elseif letterPosition = 4
+            keyOnBoard = keys:E 
+        elseif letterPosition = 5
+            keyOnBoard = keys:F    
+        elseif letterPosition = 6
+            keyOnBoard = keys:G 
+        elseif letterPosition = 7
+            keyOnBoard = keys:H    
+        elseif letterPosition = 8
+            keyOnBoard = keys:I 
+        elseif letterPosition = 9
+            keyOnBoard = keys:J    
+        elseif letterPosition = 10
+            keyOnBoard = keys:K 
+        elseif letterPosition = 11
+            keyOnBoard = keys:L    
+        elseif letterPosition = 12
+            keyOnBoard = keys:M 
+        elseif letterPosition = 13
+            keyOnBoard = keys:N    
+        elseif letterPosition = 14
+            keyOnBoard = keys:O 
+        elseif letterPosition = 15
+            keyOnBoard = keys:P    
+        elseif letterPosition = 16
+            keyOnBoard = keys:Q
+        elseif letterPosition = 17
+            keyOnBoard = keys:R    
+        elseif letterPosition = 18
+            keyOnBoard = keys:S
+        elseif letterPosition = 19
+            keyOnBoard = keys:T    
+        elseif letterPosition = 20
+            keyOnBoard = keys:U 
+        elseif letterPosition = 21
+            keyOnBoard = keys:V    
+        elseif letterPosition = 22
+            keyOnBoard = keys:W 
+        elseif letterPosition = 23
+            keyOnBoard = keys:X    
+        elseif letterPosition = 24
+            keyOnBoard = keys:Y
+        elseif letterPosition = 25
+            keyOnBoard = keys:Z
+        end
+
+        if iMonitor:IsKeyPressed(keyOnBoard) = true and keyReady = true
+            nextDrawable = arrayOfDrawables:Get(letterPosition)
+            nextDrawable:Hide()
+
             cheer:Play()
+
+            letterPosition = ran:RandomIntegerBetween(0, 25)
+            
+            nextDrawable = arrayOfDrawables:Get(letterPosition)
+            nextDrawable:Show()
             keyReady = false
-        elseif iMonitor:IsKeyPressed(keys:B) = false and keyReady = false
+        elseif iMonitor:IsKeyPressed(keyOnBoard) = false and keyReady = false
             keyReady = true
         end
     end
