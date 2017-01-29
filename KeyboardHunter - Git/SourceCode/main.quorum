@@ -38,6 +38,7 @@ Drawable letterX
 Drawable letterY
 Drawable letterZ
 
+Drawable background
 
 Drawable nextDrawable
 
@@ -89,7 +90,10 @@ integer keyOnBoard = 0
         arrayOfDrawables:Add(letterY)
         arrayOfDrawables:Add(letterZ)
         
-            
+            background:Load("OtherGraphics/SunnySky1.jpg")
+            background:SetPosition(0, 0)
+            Add(background)
+
             letterA:Load("Alphabet/A-300.png")
             letterA:SetPosition(230, 170)
             Add(letterA)
@@ -223,7 +227,7 @@ integer keyOnBoard = 0
         cheer:Load("Sound/Yay.wav")
 
         letterA:Show()
-        say "Welcome to the Keyboard Hunter. Find the key on the screen. Press the key on the screen."
+        //say "Welcome to the Keyboard Hunter. Find the key on the screen. Press the key on the screen."
     end
 
     
