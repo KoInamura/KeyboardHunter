@@ -42,6 +42,35 @@ Drawable background
 
 Drawable nextDrawable
 
+Audio soundA
+Audio soundB
+Audio soundC
+Audio soundD
+Audio soundE
+Audio soundF
+Audio soundG
+Audio soundH
+Audio soundI
+Audio soundJ
+Audio soundK
+Audio soundL
+Audio soundM
+Audio soundN
+Audio soundO
+Audio soundP
+Audio soundQ
+Audio soundR
+Audio soundS
+Audio soundT
+Audio soundU
+Audio soundV
+Audio soundW
+Audio soundX
+Audio soundY
+Audio soundZ
+
+Audio currentSound
+
 Audio cheer
 
 KeyboardEvent keys
@@ -94,6 +123,7 @@ integer keyOnBoard = 0
             background:SetPosition(0, 0)
             Add(background)
 
+//Loading all graphics and hinding to be shown later on
             letterA:Load("Alphabet/A-300.png")
             letterA:SetPosition(230, 170)
             Add(letterA)
@@ -224,9 +254,91 @@ integer keyOnBoard = 0
             Add(letterZ)
             letterZ:Hide()
 
+//Loading all audio to be played later on
+            soundA:Load("LetterSound/wendy-A.wav")
+            soundA:EnableLooping()
+
+            soundB:Load("LetterSound/wendy-B.wav")
+            soundB:EnableLooping()
+
+            soundC:Load("LetterSound/wendy-C.wav")
+            soundC:EnableLooping()
+
+            soundD:Load("LetterSound/wendy-D.wav")
+            soundD:EnableLooping()
+
+            soundE:Load("LetterSound/wendy-E.wav")
+            soundE:EnableLooping()
+
+            soundF:Load("LetterSound/wendy-F.wav")
+            soundF:EnableLooping()
+
+            soundG:Load("LetterSound/wendy-G.wav")
+            soundG:EnableLooping()
+
+            soundH:Load("LetterSound/wendy-H.wav")
+            soundH:EnableLooping()
+
+            soundI:Load("LetterSound/wendy-I.wav")
+            soundI:EnableLooping()
+
+            soundJ:Load("LetterSound/wendy-J.wav")
+            soundJ:EnableLooping()
+
+            soundK:Load("LetterSound/wendy-K.wav")
+            soundK:EnableLooping()
+
+            soundL:Load("LetterSound/wendy-L.wav")
+            soundL:EnableLooping()
+
+            soundM:Load("LetterSound/wendy-M.wav")
+            soundM:EnableLooping()
+
+            soundN:Load("LetterSound/wendy-N.wav")
+            soundN:EnableLooping()
+
+            soundO:Load("LetterSound/wendy-O.wav")
+            soundO:EnableLooping()
+
+            soundP:Load("LetterSound/wendy-P.wav")
+            soundP:EnableLooping()
+
+            soundQ:Load("LetterSound/wendy-Q.wav")
+            soundQ:EnableLooping()
+
+            soundR:Load("LetterSound/wendy-R.wav")
+            soundR:EnableLooping()
+
+            soundS:Load("LetterSound/wendy-S.wav")
+            soundS:EnableLooping()
+
+            soundT:Load("LetterSound/wendy-T.wav")
+            soundT:EnableLooping()
+
+            soundU:Load("LetterSound/wendy-U.wav")
+            soundU:EnableLooping()
+
+            soundV:Load("LetterSound/wendy-V.wav")
+            soundV:EnableLooping()
+
+            soundW:Load("LetterSound/wendy-W.wav")
+            soundW:EnableLooping()
+
+            soundX:Load("LetterSound/wendy-X.wav")
+            soundX:EnableLooping()
+
+            soundY:Load("LetterSound/wendy-Y.wav")
+            soundY:EnableLooping()
+
+            soundZ:Load("LetterSound/wendy-Z.wav")
+            soundZ:EnableLooping()
+
+        currentSound = soundA
+
         cheer:Load("Sound/Yay.wav")
 
         letterA:Show()
+        currentSound:Play()
         //say "Welcome to the Keyboard Hunter. Find the key on the screen. Press the key on the screen."
     end
 
@@ -235,53 +347,53 @@ integer keyOnBoard = 0
 
 
         if letterPosition = 0
-            keyOnBoard = keys:A    
+            keyOnBoard = keys:A
         elseif letterPosition = 1
-            keyOnBoard = keys:B    
+            keyOnBoard = keys:B
         elseif letterPosition = 2
             keyOnBoard = keys:C 
         elseif letterPosition = 3
-            keyOnBoard = keys:D    
+            keyOnBoard = keys:D 
         elseif letterPosition = 4
             keyOnBoard = keys:E 
         elseif letterPosition = 5
-            keyOnBoard = keys:F    
+            keyOnBoard = keys:F
         elseif letterPosition = 6
-            keyOnBoard = keys:G 
+            keyOnBoard = keys:G
         elseif letterPosition = 7
-            keyOnBoard = keys:H    
+            keyOnBoard = keys:H
         elseif letterPosition = 8
-            keyOnBoard = keys:I 
+            keyOnBoard = keys:I
         elseif letterPosition = 9
-            keyOnBoard = keys:J    
+            keyOnBoard = keys:J
         elseif letterPosition = 10
-            keyOnBoard = keys:K 
+            keyOnBoard = keys:K
         elseif letterPosition = 11
-            keyOnBoard = keys:L    
+            keyOnBoard = keys:L
         elseif letterPosition = 12
-            keyOnBoard = keys:M 
+            keyOnBoard = keys:M
         elseif letterPosition = 13
-            keyOnBoard = keys:N    
+            keyOnBoard = keys:N
         elseif letterPosition = 14
-            keyOnBoard = keys:O 
+            keyOnBoard = keys:O
         elseif letterPosition = 15
-            keyOnBoard = keys:P    
+            keyOnBoard = keys:P
         elseif letterPosition = 16
             keyOnBoard = keys:Q
         elseif letterPosition = 17
-            keyOnBoard = keys:R    
+            keyOnBoard = keys:R 
         elseif letterPosition = 18
             keyOnBoard = keys:S
         elseif letterPosition = 19
-            keyOnBoard = keys:T    
+            keyOnBoard = keys:T
         elseif letterPosition = 20
             keyOnBoard = keys:U 
         elseif letterPosition = 21
-            keyOnBoard = keys:V    
+            keyOnBoard = keys:V 
         elseif letterPosition = 22
-            keyOnBoard = keys:W 
+            keyOnBoard = keys:W
         elseif letterPosition = 23
-            keyOnBoard = keys:X    
+            keyOnBoard = keys:X
         elseif letterPosition = 24
             keyOnBoard = keys:Y
         elseif letterPosition = 25
@@ -291,13 +403,71 @@ integer keyOnBoard = 0
         if iMonitor:IsKeyPressed(keyOnBoard) = true and keyReady = true
             nextDrawable = arrayOfDrawables:Get(letterPosition)
             nextDrawable:Hide()
-
+            
+            currentSound:Stop()
             cheer:Play()
 
             letterPosition = ran:RandomIntegerBetween(0, 25)
             
             nextDrawable = arrayOfDrawables:Get(letterPosition)
             nextDrawable:Show()
+            
+            if letterPosition = 0
+                currentSound = soundA
+            elseif letterPosition = 1
+                currentSound = soundB
+            elseif letterPosition = 2
+                currentSound = soundC
+            elseif letterPosition = 3
+                currentSound = soundD
+            elseif letterPosition = 4
+                currentSound = soundE
+            elseif letterPosition = 5
+                currentSound = soundF
+            elseif letterPosition = 6
+                currentSound = soundG
+            elseif letterPosition = 7
+                currentSound = soundH
+            elseif letterPosition = 8
+                currentSound = soundI
+            elseif letterPosition = 9
+                currentSound = soundJ
+            elseif letterPosition = 10
+                currentSound = soundK
+            elseif letterPosition = 11
+                currentSound = soundL
+            elseif letterPosition = 12
+                currentSound = soundM
+            elseif letterPosition = 13
+                currentSound = soundN
+            elseif letterPosition = 14
+                currentSound = soundO
+            elseif letterPosition = 15
+                currentSound = soundP
+            elseif letterPosition = 16
+                currentSound = soundQ
+            elseif letterPosition = 17
+                currentSound = soundR
+            elseif letterPosition = 18
+                currentSound = soundS
+            elseif letterPosition = 19
+                currentSound = soundT
+            elseif letterPosition = 20
+                currentSound = soundU
+            elseif letterPosition = 21
+                currentSound = soundV
+            elseif letterPosition = 22
+                currentSound = soundW
+            elseif letterPosition = 23
+                currentSound = soundX
+            elseif letterPosition = 24
+                currentSound = soundY
+            elseif letterPosition = 25
+                currentSound = soundZ
+            end
+
+            currentSound:Play()
+
             keyReady = false
         elseif iMonitor:IsKeyPressed(keyOnBoard) = false and keyReady = false
             keyReady = true
