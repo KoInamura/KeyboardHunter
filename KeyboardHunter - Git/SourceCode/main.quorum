@@ -38,7 +38,11 @@ Drawable letterX
 Drawable letterY
 Drawable letterZ
 
-Drawable background
+Drawable chooseBG
+
+Drawable background1
+Drawable background2
+Drawable background3
 
 Drawable nextDrawable
 
@@ -118,10 +122,16 @@ integer keyOnBoard = 0
         arrayOfDrawables:Add(letterX)
         arrayOfDrawables:Add(letterY)
         arrayOfDrawables:Add(letterZ)
-        
-            background:Load("OtherGraphics/SunnySky1.jpg")
-            background:SetPosition(0, 0)
-            Add(background)
+
+            background1:LoadFilledRectangle(1000, 1000)
+            background1:SetPosition(0, 0)
+            Add(background1)
+            background1:Hide()
+
+            background3:Load("OtherGraphics/SunnySky1.jpg")
+            background3:SetPosition(0, 0)
+            Add(background3)
+            background3:Hide()
 
 //Loading all graphics and hinding to be shown later on
             letterA:Load("Alphabet/A-300.png")
@@ -337,9 +347,11 @@ integer keyOnBoard = 0
 
         cheer:Load("Sound/Yay.wav")
 
-        letterA:Show()
-        currentSound:Play()
-        //say "Welcome to the Keyboard Hunter. Find the key on the screen. Press the key on the screen."
+        chooseBG:Load("OtherGraphics/BG-Choice.png")
+        chooseBG:SetPosition(20, 20)
+        Add(chooseBG)
+
+       
     end
 
     
@@ -398,6 +410,29 @@ integer keyOnBoard = 0
             keyOnBoard = keys:Y
         elseif letterPosition = 25
             keyOnBoard = keys:Z
+        end
+
+        if chooseBG:IsShowing() = true
+            if iMonitor:IsKeyPressed(keys:NUM_1)
+                chooseBG:Hide()
+
+                background1:Show()
+
+                letterA:Show()
+                currentSound:Play()
+            elseif iMonitor:IsKeyPressed(keys:NUM_2)
+                chooseBG:Hide()
+
+                letterA:Show()
+                currentSound:Play()
+            elseif iMonitor:IsKeyPressed(keys:NUM_3)
+                chooseBG:Hide()
+
+                background3:Show()
+
+                letterA:Show()
+                currentSound:Play()
+            end
         end
 
         if iMonitor:IsKeyPressed(keyOnBoard) = true and keyReady = true
